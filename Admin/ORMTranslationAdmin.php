@@ -30,12 +30,13 @@ class ORMTranslationAdmin extends TranslationAdmin
         ksort($domains);
 
         $filter
+            /*
             ->add(
                 'locale',
                 'doctrine_orm_callback',
                 array(
                     'callback'      => function (ProxyQuery $queryBuilder, $alias, $field, $options) {
-                        /* @var $queryBuilder \Doctrine\ORM\QueryBuilder */
+                        // @var $queryBuilder \Doctrine\ORM\QueryBuilder 
                         if (!isset($options['value']) || empty($options['value'])) {
                             return;
                         }
@@ -57,7 +58,7 @@ class ORMTranslationAdmin extends TranslationAdmin
                 array
                 (
                     'callback'      => function (ProxyQuery $queryBuilder, $alias, $field, $options) {
-                        /* @var $queryBuilder \Doctrine\ORM\QueryBuilder */
+                        // @var $queryBuilder \Doctrine\ORM\QueryBuilder
                         if (!isset($options['value']) || empty($options['value']) || false === $options['value']) {
                             return;
                         }
@@ -98,6 +99,7 @@ class ORMTranslationAdmin extends TranslationAdmin
                     'field_type'    => 'choice',
                 )
             )
+            */
             ->add(
                 'content',
                 'doctrine_orm_callback',
