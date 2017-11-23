@@ -152,6 +152,11 @@ class TranslationCRUDController extends CRUDController
             new RemoveLocaleCacheEvent($this->getManagedLocales())
         );
 
+        apc_clear_cache();
+        apc_clear_cache('user');
+        apc_clear_cache('opcode');
+        opcache_reset();
+
         /** @var $session Session */
         $session = $this->get('session');
         $session->getFlashBag()->set('sonata_flash_success', 'translations.cache_removed');
